@@ -2,9 +2,7 @@ package com.gunpla.joao.gunpla;
 
 public enum Serie {
 
-	SEED,
+	GFIGHTER,
 	SEEDDESTINY,
-	WING,
-	ZEROZERO,
-	IBO,
+	ZEROZERO
 }

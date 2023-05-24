@@ -3,8 +3,8 @@ package com.gunpla.joao.gunpla;
 public record DadosCadastroGunpla(
 		String nome,
 		Serie serie,
-		String cd,
+		String unidade,
 		String quantidade,
-		String modelo,
+		Modelo modelo,
 		Marca marca) {
 }
