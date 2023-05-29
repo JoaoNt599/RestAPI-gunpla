@@ -4,7 +4,7 @@ create table tb_gunplas
 	nome varchar(100) not null,
 	serie varchar(100) not null,
 	unidade varchar(45) not null,
-	quantidade varchar(45) not null,
+	quantidade int(20) not null,
 	modelo varchar(2),
 	marca varchar(45),
 	

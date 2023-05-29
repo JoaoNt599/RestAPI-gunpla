@@ -10,6 +10,8 @@ import com.gunpla.joao.gunpla.DadosCadastroGunpla;
 import com.gunpla.joao.gunpla.Gunpla;
 import com.gunpla.joao.gunpla.GunplaRepository;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/gunplas")
 public class GunplaController {
@@ -18,7 +20,7 @@ public class GunplaController {
 	private GunplaRepository repository;
 	
 	@PostMapping
-	public void cadastrar(@RequestBody DadosCadastroGunpla dados) {
+	public void cadastrar(@RequestBody @Valid DadosCadastroGunpla dados) {
 		repository.save(new Gunpla(dados));
 	}
 }

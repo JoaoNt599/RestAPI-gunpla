@@ -24,7 +24,7 @@ public class Gunpla {
 	private Serie serie;
 	
 	private String unidade;
-	private String quantidade;
+	private int quantidade;
 	
 	@Enumerated(EnumType.STRING)
 	private Modelo modelo;
@@ -37,7 +37,7 @@ public class Gunpla {
 		
 	}
 
-	public Gunpla(Long id, String nome, Serie serie, String unidade, String quantidade, Modelo modelo, Marca marca) {
+	public Gunpla(Long id, String nome, Serie serie, String unidade, int quantidade, Modelo modelo, Marca marca) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -89,11 +89,11 @@ public class Gunpla {
 		this.unidade = unidade;
 	}
 
-	public String getQuantidade() {
+	public int getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(String quantidade) {
+	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
 
