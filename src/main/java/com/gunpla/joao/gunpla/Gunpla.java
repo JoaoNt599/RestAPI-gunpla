@@ -48,6 +48,15 @@ public class Gunpla {
 		this.marca = marca;
 	}
 
+	public Gunpla(DadosCadastroGunpla dados) {
+		this.nome=dados.nome();
+		this.serie=dados.serie();
+		this.unidade=dados.unidade();
+		this.quantidade=dados.quantidade();
+		this.modelo=dados.modelo();
+		this.marca=dados.marca();
+	}
+
 	public Long getId() {
 		return id;
 	}
