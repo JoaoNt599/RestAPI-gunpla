@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 
 @Entity(name = "gunpla")
 @Table(name = "tb_gunplas")
@@ -128,5 +129,18 @@ public class Gunpla {
 			return false;
 		Gunpla other = (Gunpla) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	public void atualizarInformacoes(@Valid DadosAtualizarGunpla dados) {
+		
+		if (dados.nome() != null) {
+			this.nome = dados.nome();
+		}
+		if (dados.modelo() != null) {
+			this.modelo = dados.modelo();
+		}
+		if (dados.marca() != null) {
+			this.marca = dados.marca();
+		}
 	} 
 }

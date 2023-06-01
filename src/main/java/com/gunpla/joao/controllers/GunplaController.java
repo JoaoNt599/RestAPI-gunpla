@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gunpla.joao.gunpla.DadosAtualizarGunpla;
 import com.gunpla.joao.gunpla.DadosCadastroGunpla;
 import com.gunpla.joao.gunpla.DadosListagemGunplas;
 import com.gunpla.joao.gunpla.Gunpla;
@@ -16,6 +18,7 @@ import com.gunpla.joao.gunpla.GunplaRepository;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+
 
 @RestController
 @RequestMapping("/gunplas")
@@ -33,5 +36,12 @@ public class GunplaController {
 	@GetMapping
 	public List<DadosListagemGunplas> listar(){
 		return repository.findAll().stream().map(DadosListagemGunplas::new).toList();
+	}
+	
+	@PutMapping
+	@Transactional
+	public void atualizar(@RequestBody @Valid DadosAtualizarGunpla dados) {
+		var gunpla = repository.getReferenceById(dados.id());
+		gunpla.atualizarInformacoes(dados);
 	}
 }
