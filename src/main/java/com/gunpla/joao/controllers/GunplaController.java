@@ -37,7 +37,7 @@ public class GunplaController {
 	
 	@GetMapping
 	public List<DadosListagemGunplas> listar(){
-		return repository.findAll().stream().map(DadosListagemGunplas::new).toList();
+		return repository.findAllByExistirTrue().stream().map(DadosListagemGunplas::new).toList();
 	}
 	
 	@PutMapping
@@ -49,7 +49,14 @@ public class GunplaController {
 	
 	@DeleteMapping("/{id}")
 	@Transactional
-	public void excluit(@PathVariable Long id) {
+	public void excluir(@PathVariable Long id) {
 		repository.deleteById(id);
+	}
+	
+	@DeleteMapping("existir/{id}")
+	@Transactional
+	public void remover(@PathVariable Long id) {
+		var gunpla = repository.getReferenceById(id);
+		gunpla.remover();
 	}
 }

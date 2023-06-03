@@ -33,6 +33,7 @@ public class Gunpla {
 	@Enumerated(EnumType.STRING)
 	private Marca marca;
 	
+	private Boolean existe;
 	
 	public Gunpla() {
 		
@@ -50,6 +51,7 @@ public class Gunpla {
 	}
 
 	public Gunpla(DadosCadastroGunpla dados) {
+		this.setExiste(true);
 		this.nome=dados.nome();
 		this.serie=dados.serie();
 		this.unidade=dados.unidade();
@@ -114,6 +116,14 @@ public class Gunpla {
 		this.marca = marca;
 	}
 
+	public Boolean getExiste() {
+		return existe;
+	}
+
+	public void setExiste(Boolean existe) {
+		this.existe = existe;
+	} 
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -142,5 +152,9 @@ public class Gunpla {
 		if (dados.marca() != null) {
 			this.marca = dados.marca();
 		}
-	} 
+	}
+
+	public void remover() {
+		this.existe = false;
+	}
 }
