@@ -59,4 +59,11 @@ public class GunplaController {
 		var gunpla = repository.getReferenceById(id);
 		gunpla.remover();
 	}
+	
+	@PutMapping("/adicionar/{id}")
+	@Transactional
+	public void Adicionar(@PathVariable Long id) {
+		var gunpla = repository.getReferenceById(id);
+		gunpla.adicionar();
+	}
 }

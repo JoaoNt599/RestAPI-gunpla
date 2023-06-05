@@ -157,4 +157,8 @@ public class Gunpla {
 	public void remover() {
 		this.existe = false;
 	}
+
+	public void adicionar() {
+		this.existe = true;
+	}
 }
