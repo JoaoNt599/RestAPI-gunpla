@@ -51,6 +51,13 @@ public class GunplaController {
 		return ResponseEntity.ok(lista);
 	}
 	
+	@GetMapping("/{id}")
+	public ResponseEntity<DadosDetalhamentoGunpla> detalhar(@PathVariable Long id) {
+		var gunpla = repository.getReferenceById(id);
+		
+		return ResponseEntity.ok(new DadosDetalhamentoGunpla(gunpla));
+	}
+	
 	@PutMapping
 	@Transactional
 	public ResponseEntity<DadosDetalhamentoGunpla> atualizar(@RequestBody @Valid DadosAtualizarGunpla dados) {
