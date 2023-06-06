@@ -1,0 +1,1 @@
+insert into tb_usuarios values (1, 'joao_test', '$2a$12$fnfMV12iaawLBsfAt3v5CuOv3gkL6ub5Cu5/BM2WPsZ1bCc5oqVu');
