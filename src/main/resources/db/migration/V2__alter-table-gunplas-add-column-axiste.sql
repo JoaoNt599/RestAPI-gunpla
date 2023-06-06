@@ -1,2 +1,2 @@
-alter table gunplas add existe tinyint;
+alter table tb_gunplas add existe tinyint;
 update gunplas set existe = 1;
