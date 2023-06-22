@@ -4,6 +4,7 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.auth0.jwt.JWT;
@@ -14,10 +15,13 @@ import com.gunpla.joao.usuarios.Usuario;
 @Service
 public class TokenService {
 
+	@Value("${api.security.token.secret}")
+	private String secret;
+	
 	public String gerarToken(Usuario usuario) {
 		
 		try {
-		    var algorithm = Algorithm.HMAC256("123456");
+		    var algorithm = Algorithm.HMAC256(secret);
 		    return JWT.create()
 		        .withIssuer("Gunplas_api")
 		        .withSubject(usuario.getLogin())
